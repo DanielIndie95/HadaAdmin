@@ -1,0 +1,17 @@
+<div>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab ng-repeat="menu in vm.menus" label="{{menu.type}}">
+            <div>
+                <div class="col-md-4" ng-repeat="dish in vm.dishes">
+                    <img ng-src="{{dish.image}}" />
+                    <h2>{{dish.description}}</h2>
+                    <md-checkbox ng-model="menu.dishes[dish.id].isSelected" aria-label="בחר" ng-disabled="vm.created">
+                    </md-checkbox>
+                </div>
+            </div>
+        </md-tab>
+    </md-tabs>
+    <md-button md-no-ink class="md-primary" ng-click="vm.createMenus()" ng-disabled="vm.created">
+        הוסף תפרטים להיום
+    </md-button>
+</div>

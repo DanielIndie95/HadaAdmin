@@ -1,0 +1,48 @@
+<form name="dishForm">
+    <md-input-container>
+        <label>תיאור</label>
+        <input type="text" ng-model="vm.dish.name" required>
+    </md-input-container>
+
+    <div>
+        <md-input-container>
+            <label>סוג המנה</label>
+            <md-select ng-model="vm.dish.type" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
+                <md-option ng-value="type" ng-repeat="type in vm.types">{{type.displayName}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div>
+        הוסף תמונה:
+        <input ng-model="vm.dish.image" type="file" class="dropify" required/>
+    </div>
+    <md-checkbox ng-model="vm.dish.muchDat" aria-label="מהדרין">
+        לממש דתיים (למהדרין)
+    </md-checkbox>
+    <md-checkbox ng-model="vm.dish.breadStuff" aria-label="צליאק">
+        מתאים לרגישי צליאק
+    </md-checkbox>
+    <md-checkbox ng-model="vm.dish.vegan" aria-label="מגעיל">
+        מגעיל (טבעוני)
+    </md-checkbox>
+    <md-list>
+        <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
+        <md-list-item ng-repeat="ingredient in vm.dish.ingredients">
+            <p> {{ ingredient }} </p>
+            <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+        </md-list-item>
+        <md-button class="md-primary md-raised" ng-click="vm.addIngridient($event)">
+            הוסף רכיב
+        </md-button>
+    </md-list>
+    <md-button class="md-primary md-raised" ng-click="vm.createDish()" ng-disabled="dishForm.$invalid || vm.getImageData()== undefined">
+        סיים והוסף מנה
+    </md-button>
+</form>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.dropify').dropify();
+    })
+
+</script>
