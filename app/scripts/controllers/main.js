@@ -20,9 +20,11 @@
     vm.copyMode = false;
 
     function ctor() {
-      serverDb.getMenus()
-      vm.days.forEach(function (day,i) {
-        vm.days[i].finished = serverDb.getMenus(day.date).length > 0;
+      vm.days.forEach(function (day, i) {
+        serverDb.getMenus(day.date)
+          .then(res => {
+            vm.days[i].finished = res.length > 0
+          })
       }, this);
     }
 
@@ -44,14 +46,16 @@
 
     function dayClicked(day) {
       if (vm.copyMode) {
-        copyRequest(vm.copyModeDay, day);
-        vm.copyMode = false;
-        $mdToast.show(
-          $mdToast.simple()
-            .textContent('שיכפול היום ' + vm.copyModeDay.displayName + " ליום " + day.displayName + " הושלמה בהצלחה")
-            .position("bottom left")
-            .hideDelay(3000)
-        );
+        copyRequest(vm.copyModeDay, day)
+          .then(() => {
+            vm.copyMode = false;
+            $mdToast.show(
+              $mdToast.simple()
+                .textContent('שיכפול היום ' + vm.copyModeDay.displayName + " ליום " + day.displayName + " הושלמה בהצלחה")
+                .position("bottom left")
+                .hideDelay(3000)
+            );
+          })
       }
       else {
         navigateToMenus(day.url);
@@ -62,11 +66,14 @@
     }
 
     function copyRequest(copiedDay, createdDay) {
-      var menus = serverDb.getMenus(copiedDay.date);
-      menus.forEach(function (element) {
-        element.date = createdDay.date.toDate();
-        serverDb.createMenu(element);
-      }, this);
+      return serverDb.getMenus(copiedDay.date)
+        .then(menus => {
+          menus.forEach(function (element) {
+            element.date = createdDay.date.toDate();
+            serverDb.createMenu(element);
+          }, this);
+        })
+
     }
     function formatDay(date) {
       return {
