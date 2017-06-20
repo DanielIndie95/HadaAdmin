@@ -1,6 +1,8 @@
 /**
  * Created by sdani on 19/06/2017.
  */
+Chart.defaults.global.defaultFontSize = 18;
+Chart.defaults.global.defaultFontColor = 'white';
 
 var chart;
 var backgroundColors=[

@@ -1,0 +1,30 @@
+body{
+    background-color: black;
+}
+
+
+canvas{
+    margin: 0 10px;
+}
+
+.btn-bar{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.btn{
+        font-size: 20px;
+    border: 0px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 6px;
+    background-color: darkred;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:focus{
+    border: 0px;
+    outline-color: black;
+}

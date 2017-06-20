@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="Chart.bundle.js"> </script>
+    <script type="text/javascript" src="jquery-3.2.1.js"> </script>
+    <script type="text/javascript" src="script.js"> </script>
+    <script type="text/javascript" src="lodash.js"> </script>
+    <script type="text/javascript" src="moment.js"> </script>
+</head>
+<body>
+    <div class="btn-bar">
+        <button onclick="HighestRatedDishesByCategory('Meat')" class="btn">Meat</button>
+<button onclick="HighestRatedDishesByCategory('Salad')" class="btn">Salad</button>
+<button onclick="HighestRatedDishesByCategory('Vegitrain')" class="btn">Vegetarian</button>
+<button onclick="MostUsedIngredients()" class="btn">Most-Used-Ingredients</button>
+<button onclick="BestFoodByUses()" class="btn">Best Foods</button>
+<!--<button onclick="FoodOverTime()" class="btn">Food ratings over time</button>-->
+    </div>
+<canvas id="myChart" height="400px" width="400px" hidden="true"></canvas>
+</body>
+</html>
