@@ -1,0 +1,135 @@
+{
+  "id":1,
+  "date":"21/06/2017",
+  "type": "Breakfast",
+  "dishes":[
+    {
+      "id": 111,
+      "picture": "assets/dishes/chicken.jpg",
+      "name": "shnitzel",
+      "description": "fries chicken",
+      "rank": 100,
+      "type": "Meat",
+      "isGlat": false,
+      "isVegan": false,
+      "isGlutenFree": false,
+      "ingredients":["oil","chicken","breadcrumbs"]
+    }
+  ,
+    {
+      "id": 222,
+      "picture": "assets/dishes/thina.jpg",
+      "name": "thina",
+      "description": "best thina!",
+      "rank": 90,
+      "type": "Salad",
+      "isGlat": false,
+      "isVegan": true,
+      "isGlutenFree": true,
+      "ingredients":["thina"]
+    }
+  ,
+    {
+      "id": 333,
+      "picture": "assets/dishes/salad.jpg",
+      "name": "salad",
+      "description": "many fresh vegetables",
+      "rank": 65,
+      "type": "Salad",
+      "isGlat": true,
+      "isVegan": true,
+      "isGlutenFree": true,
+      "ingredients":["onion","tomato","lettuce"]
+    }
+  ,
+    {
+      "id": 444,
+      "picture": "assets/dishes/kebab.jpg",
+      "name": "kebab",
+      "description": "best kebab",
+      "rank": 55,
+      "type": "Meat",
+      "isGlat": false,
+      "isVegan": false,
+      "isGlutenFree": false,
+      "ingredients":["oil","meat"]
+    }
+  ,
+    {
+      "id": 555,
+      "picture": "assets/dishes/memole.jpg",
+      "name": "memole",
+      "description": "memole like in home",
+      "rank": 40,
+      "type": "Meat",
+      "isGlat": true,
+      "isVegan": false,
+      "isGlutenFree": false,
+      "ingredients":["oil","pastry","meat"]
+    }
+  ,
+    {
+      "id": 666,
+      "picture": "assets/dishes/pashtida.jpg",
+      "name": "pashtida",
+      "description": "haftaha",
+      "rank": 95,
+      "type": "Vegitrain",
+      "isGlat": false,
+      "isVegan": false,
+      "isGlutenFree": false,
+      "ingredients":["oil","pastry","onion"]
+    }
+  ,
+    {
+      "id": 777,
+      "picture": "assets/dishes/shniteltiras.jpg",
+      "name": "shnitzel tiras",
+      "description": "like you always wanted",
+      "rank": 80,
+      "type": "Vegitrain",
+      "isGlat": false,
+      "isVegan": false,
+      "isGlutenFree": false,
+      "ingredients":["oil","breadcrumbs","corn"]
+    }
+  ,
+    {
+      "id": 888,
+      "picture": "assets/dishes/soup.jpg",
+      "name": "soup",
+      "description": "water",
+      "rank": 50,
+      "type": "Addition",
+      "isGlat": false,
+      "isVegan": false,
+      "isGlutenFree": true,
+      "ingredients":["oil","water","vegetables"]
+    },
+    {
+      "id": 999,
+      "picture": "assets/dishes/falafel.jpg",
+      "name": "falafel",
+      "description": "with many additions",
+      "rank": 70,
+      "type": "Pitiya",
+      "isGlat": true,
+      "isVegan": false,
+      "isGlutenFree": false,
+      "ingredients":["oil","hummus"]
+    },
+    {
+      "id": 1010,
+      "picture": "assets/dishes/shawarma.jpg",
+      "name": "shawarma",
+      "description": "very tasty",
+      "rank": 75,
+      "type": "Pitiya",
+      "isGlat": false,
+      "isVegan": false,
+      "isGlutenFree": false,
+      "ingredients":["oil","meat","breadcrumbs"]
+    }
+  ]
+
+}
