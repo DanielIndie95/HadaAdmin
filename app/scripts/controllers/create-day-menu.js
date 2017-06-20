@@ -10,18 +10,24 @@
     vm.menus = [];
 
     function ctor() {
-      vm.dishes = serverDb.getAvailableDishes();
-      vm.menus = serverDb.getMenus(new Date(vm.date));
-      if (!vm.menus.length) {
-        addMenu("ארוחת בוקר");
-        addMenu("ארוחת צהריים");
-        addMenu("ארוחת ערב");
-        vm.created = false;
-      }
-      else {
-        vm.menus = adaptMenusFromServer(vm.menus);
-        vm.created = true;
-      }
+      serverDb.getAvailableDishes()
+        .then(results => {
+          vm.dishes = results;
+        })
+      serverDb.getMenus(new Date(vm.date))
+        .then(results => {
+          vm.menus = results;
+          if (!vm.menus.length) {
+            addMenu("ארוחת בוקר");
+            addMenu("ארוחת צהריים");
+            addMenu("ארוחת ערב");
+            vm.created = false;
+          }
+          else {
+            vm.menus = adaptMenusFromServer(vm.menus)
+            vm.created = true;
+          }
+        })
     }
     vm.createMenus = function () {
       var menus = adaptMenusToServer(vm.menus);
@@ -29,12 +35,12 @@
         serverDb.createMenu(element);
       }, this);
       $location.path("/");
-       $mdToast.show(
-          $mdToast.simple()
-            .textContent("נוצר התפריט להיום :)")
-            .position("bottom left")
-            .hideDelay(3000)
-        );
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent("נוצר התפריט להיום :)")
+          .position("bottom left")
+          .hideDelay(3000)
+      );
     }
 
     vm.selectDish = function (menu, dish) {
@@ -43,7 +49,10 @@
 
     function adaptMenusToServer(menus, dishes) {
       return menus.map(m => {
-        var dishes = m.dishes.filter(dish => dish.isSelected).map(dish => dish.id);
+        var dishes = [];
+        for (var i in m.dishes)
+          if (m.dishes[i].isSelected)
+            dishes.push(m.dishes[i].id)
         return { type: m.type, dishes: dishes, date: m.date }
       })
     }

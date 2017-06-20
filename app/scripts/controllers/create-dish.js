@@ -7,6 +7,9 @@
         var vm = this;
         vm.dish = {};
         vm.dish.image = {};
+        vm.dish.isVegan = false;
+        vm.dish.isGlat = false;
+        vm.dish.isGlutenFree = false;
         function ctor() {
             vm.dish.description = "";
             vm.dish.ingredients = ["a"];
@@ -37,13 +40,21 @@
         vm.createDish = function () {
             var image = vm.getImageData();
             vm.dish.image = image;
-            dbServer.createDish(vm.dish);
-            $location.path("/");
+            dbServer.createDish(vm.dish)
+                .then(result => {
+                    $location.path("/");
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent("נוצרה מנה חדשה בהצלחה")
+                            .position("bottom left")
+                            .hideDelay(3000)
+                    );
+                })
+
         }
         vm.getImageData = function () {
             return $(".dropify-render img").attr("src");
         }
-
         ctor();
     }
 })();
