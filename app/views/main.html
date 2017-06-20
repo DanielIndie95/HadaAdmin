@@ -1,22 +1,19 @@
 <div class="row marketing">
-  <a class="btn btn-default" ng-href="#!/dish">הוסף מנה</a>
-  <div>
-    <div layout="row" layout-wrap flex="row">
-      <span flex="20" ng-repeat="day in vm.days">
+  <div layout="row" layout-wrap flex="row">
+    <span flex="20" ng-repeat="day in vm.days">
             <md-card class="date-card" md-theme-watch ng-click="vm.dayClicked(day)">
               <md-card-title>
                 <md-card-title-text>
                   <span class="md-headline">{{day.displayName}} <i ng-click="vm.copyClicked($event,day)" class="fa fa-clone" aria-hidden="true" ng-if="day.finished"></i></span>
-      <span><i ng-if="day.finished" class="fa fa-check-square-o" aria-hidden="true"></i></span>
+    <span><i ng-if="day.finished" class="fa fa-check-square-o" aria-hidden="true"></i></span>
 
-      <span class="md-subhead">{{day.rank}}</span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <div class="md-media-sm card-media"></div>
-      </md-card-title-media>
-      </md-card-title>
-      </md-card>
-      </span>
-    </div>
+    <span class="md-subhead">{{day.rank}}</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <div class="md-media-sm card-media"></div>
+    </md-card-title-media>
+    </md-card-title>
+    </md-card>
+    </span>
   </div>
 </div>

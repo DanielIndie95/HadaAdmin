@@ -12,7 +12,7 @@
             </md-select>
         </md-input-container>
     </div>
-    <div>
+    <div class="nav-text">
         הוסף תמונה:
         <input ng-model="vm.dish.image" type="file" class="dropify" required/>
     </div>
@@ -26,7 +26,6 @@
         מגעיל (טבעוני)
     </md-checkbox>
     <md-list>
-        <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
         <md-list-item ng-repeat="ingredient in vm.dish.ingredients">
             <p> {{ ingredient }} </p>
             <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
